@@ -1,2 +1,2 @@
 # SE2021Practice
-https://docs.google.com/presentation/d/1MCz6UrpTSqI-dBRKP3hgpjwFdbOWcO_p6LlD_ICNgVc/edit#slide=id.gecfd69cd95_0_0
+https://docs.google.com/presentation/d/1MCz6UrpTSqI-dBRKP3hgpjwFdbOWcO_p6LlD_ICNgVc/edit?usp=sharing
