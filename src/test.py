@@ -11,19 +11,19 @@ A /= 2
 class Cls:
     """This class does Cls."""
     def __init__(self):
-        pass
+        self.x_v = 10
 
     def __len__(self):
         return 1
 
     def kek(self):
-        self.x = 1
         """Return pass"""
+        self.x_v = 1
         return 10
 
     def zhaba(self):
-        self.x = 2
         """Return pass"""
+        self.x_v = 2
         return 'zhaba'
 
 
