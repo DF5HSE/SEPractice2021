@@ -67,6 +67,10 @@ class TestStringMethods(unittest.TestCase):
         x_v = 100
         self.assertTrue(x_v != 1)
 
+    def test_cls(self):
+        objct = Cls()
+        self.assertTrue(objct.kek() == 10)
+
 
 if __name__ == '__main__':
     unittest.main()
