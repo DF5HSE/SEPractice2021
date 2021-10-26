@@ -3,12 +3,13 @@ import math
 
 print('Hello')
 
-a = 3
+a = math.pi
+a /= 2
 
 
 class C:
-	pass
+    pass
 
 
 def kek():
-	return 0
+    return 0
