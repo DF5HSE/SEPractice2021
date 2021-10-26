@@ -14,15 +14,15 @@ class Cls:
         pass
 
     def __len__(self):
-        pass
+        return 1
 
     def kek(self):
         """Return pass"""
-        pass
+        return 10
 
     def zhaba(self):
         """Return pass"""
-        pass
+        return 'zhaba'
 
 
 def kek():
