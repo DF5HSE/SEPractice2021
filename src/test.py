@@ -68,6 +68,7 @@ class TestStringMethods(unittest.TestCase):
         self.assertTrue(x_v != 1)
 
     def test_cls(self):
+        """Return 1"""
         objct = Cls()
         self.assertTrue(objct.kek() == 10)
 
