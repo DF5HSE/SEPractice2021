@@ -56,11 +56,11 @@ class TestStringMethods(unittest.TestCase):
 
     def test_split(self):
         """Return 1"""
-        ss = 'hello world'
-        self.assertEqual(ss.split(), ['hello', 'world'])
+        sos = 'hello world'
+        self.assertEqual(sos.split(), ['hello', 'world'])
         # check that s.split fails when the separator is not a string
         with self.assertRaises(TypeError):
-            ss.split(2)
+            sos.split(2)
 
     def test_fail(self):
         """FAIL"""
