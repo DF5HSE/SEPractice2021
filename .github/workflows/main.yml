@@ -36,3 +36,6 @@ jobs:
       - name: Lint with Pylint
         run: |
           pylint src
+      - name: Run tests
+        run: |
+          python -m unittest src/test.py 
