@@ -16,10 +16,12 @@ class Cls:
     def __len__(self):
         pass
 
-    def kek():
+    def kek(self):
+        """Return pass"""
         pass
 
-    def zhaba():
+    def zhaba(self):
+        """Return pass"""
         pass
 
 
