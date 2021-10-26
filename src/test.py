@@ -65,7 +65,7 @@ class TestStringMethods(unittest.TestCase):
     def test_fail(self):
         """FAIL"""
         x_v = 100
-        self.assertTrue(1 == x_v)
+        self.assertTrue(x_v == 1)
 
 
 if __name__ == '__main__':
