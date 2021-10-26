@@ -17,10 +17,12 @@ class Cls:
         return 1
 
     def kek(self):
+        self.x = 1
         """Return pass"""
         return 10
 
     def zhaba(self):
+        self.x = 2
         """Return pass"""
         return 'zhaba'
 
