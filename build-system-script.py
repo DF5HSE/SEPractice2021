@@ -5,7 +5,7 @@ from typing import List
 
 def call_all(calls: List[str]):
     for call in calls:
-        subprocess.call(call)
+        subprocess.call(call.split())
 
 
 def install_dependencies():
