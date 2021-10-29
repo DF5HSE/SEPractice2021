@@ -42,7 +42,7 @@ def run_flake8():
 
 def run_pylint():
     calls = [
-        "python3 -m pylint src"
+        "python3 -m pylint src --extension-pkg-whitelist=pydantic"
     ]
     call_all(calls)
 

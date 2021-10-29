@@ -3,8 +3,11 @@ import re
 import unittest
 import string
 import random
+import src.database.user as udb
+from src.database.user import id_user_meta, email_id, id_pwd
 from src.utils import validate_new_password
 from pydantic import SecretStr
+from datetime import date
 
 digits = '0123456789'
 letters = string.ascii_letters
@@ -61,6 +64,16 @@ class TestPasswordValidation(unittest.TestCase):
                 pwd += ''.join(map(chr, [random.randint(0, 255) for _ in range(random.randint(4, 12))]))
             pwd = ''.join(random.sample(pwd, len(pwd)))
             self.assertFalse(validate_new_password(SecretStr(pwd))[0])
+
+
+class TestUserAdding(unittest.TestCase):
+    def setUp(self):
+        id_user_meta.clear()
+        id_pwd.clear()
+        email_id.clear()
+
+    def test_mail_correctness(self):
+        self.assertFalse(udb.add_user("bad email", "qwerty", "John", date(2021, 1, 1)))
 
 
 if __name__ == '__main__':
