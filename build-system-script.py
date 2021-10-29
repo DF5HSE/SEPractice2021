@@ -46,6 +46,13 @@ def run_pylint():
     call_all(calls)
 
 
+def run_type_checking():
+    calls = [
+        "mypy src"
+    ]
+    call_all(calls)
+
+
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         raise RuntimeError(f"Wrong number of arguments. Expected 2, found {len(sys.argv)}:\n"
@@ -53,6 +60,8 @@ if __name__ == "__main__":
     command = sys.argv[1]
     if command == "install-depends":
         install_dependencies()
+    elif command == "type-check":
+        run_type_checking()
     elif command == "tests":
         run_tests()
     elif command == "check-coverage":
