@@ -37,4 +37,7 @@ def validate_new_password(pwd: SecretStr) -> Tuple[bool, str]:
     if not 8 <= len(pwd.get_secret_value()) <= 16:
         return False, "Wrong length of password"
 
+    if re.search(r'[^0-9a-zA-Z!@#_.]', pwd.get_secret_value()) is not None:
+        return False, "Forbidden char"
+
     return True, "Ok"

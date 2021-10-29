@@ -6,7 +6,6 @@ import random
 from src.utils import validate_new_password
 from pydantic import SecretStr
 
-
 digits = '0123456789'
 letters = string.ascii_letters
 specials = '!@#_.'
@@ -36,9 +35,9 @@ class TestPasswordValidation(unittest.TestCase):
                 pwd += ''.join(random.choices(symbs, k=random.randint(5, 13)))
                 self.assertFalse(validate_new_password(SecretStr(pwd))[0])
 
-
     def generate_pref(self):
-        return random.choice(letters.lower()) + random.choice(digits) + random.choice(specials) + random.choice(letters.upper())
+        return random.choice(letters.lower()) + random.choice(digits) + random.choice(specials) + random.choice(
+            letters.upper())
 
     def test_len(self):
         n_pwds = 1000
@@ -52,7 +51,6 @@ class TestPasswordValidation(unittest.TestCase):
             pwd += ''.join(random.choices(symbs, k=random.randint(13, 100)))
             self.assertFalse(validate_new_password(SecretStr(pwd))[0])
 
-
     def test_forbidden(self):
         n_pwds = 1000
         for _ in range(n_pwds):
@@ -61,8 +59,9 @@ class TestPasswordValidation(unittest.TestCase):
             while re.search(r'[^0-9a-zA-Z!@#_.]', pwd) is None:
                 pwd = self.generate_pref()
                 pwd += ''.join(map(chr, [random.randint(0, 255) for _ in range(random.randint(4, 12))]))
-            pwd = ''.join(random.sample(pwd,len(pwd)))
+            pwd = ''.join(random.sample(pwd, len(pwd)))
             self.assertFalse(validate_new_password(SecretStr(pwd))[0])
+
 
 if __name__ == '__main__':
     unittest.main()
