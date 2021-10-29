@@ -25,22 +25,16 @@ jobs:
           python-version: 3.6.9
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install flake8
-          pip install pylint
-          pip install coverage
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          python build-system-script.py install-depends
       - name: Run tests
         run: |
-          python -m unittest src/test.py
+          python build-system-script.py tests
       - name: Check coverage
         run: |
-           coverage run -m unittest src/test.py
-           coverage report -m
+          python build-system-script.py check-coverage
       - name: Lint with flake8
         run: |
-          flake8 src --count --select=E9,F63,F7,F82 --show-source --statistics
-          flake8 src --count --max-complexity=10 --max-line-length=79 --statistics
+          python build-system-script.py flake8
       - name: Lint with Pylint
         run: |
-          pylint src
+          python build-system-script.py pylint
