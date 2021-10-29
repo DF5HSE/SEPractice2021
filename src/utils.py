@@ -1,8 +1,8 @@
 """Utils"""
+import re
 from typing import Tuple
 
 from pydantic import SecretStr
-import re
 
 
 def validate_new_password(pwd: SecretStr) -> Tuple[bool, str]:
@@ -25,10 +25,12 @@ def validate_new_password(pwd: SecretStr) -> Tuple[bool, str]:
         return False, "Password is empty"
 
     regs = [r'[A-Z]', r'[a-z]', r'[0-9]', r'[!@#_.]']
-    reasons = ['uppercase letter', 
+    reasons = [
+        'uppercase letter',
         'lowercase letter',
         'digit',
-        'special symbol']
+        'special symbol'
+    ]
 
     for reg_exp, reason in zip(regs, reasons):
         if re.search(reg_exp, pwd.get_secret_value()) is None:

@@ -42,7 +42,7 @@ def run_flake8():
 
 def run_pylint():
     calls = [
-        "pylint src"
+        "python3 -m pylint src"
     ]
     call_all(calls)
 
