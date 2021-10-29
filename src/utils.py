@@ -24,8 +24,15 @@ def validate_new_password(pwd: SecretStr) -> Tuple[bool, str]:
     if pwd.get_secret_value() == "":
         return False, "Password is empty"
 
-    if re.search(r'[A-Z]', pwd.get_secret_value()) is None:
-        return False, "No capital letters"
+    regs = [r'[A-Z]', r'[a-z]', r'[0-9]', r'[!@#_.]']
+    reasons = ['uppercase letter', 
+        'lowercase letter',
+        'digit',
+        'special symbol']
+
+    for reg_exp, reason in zip(regs, reasons):
+        if re.search(reg_exp, pwd.get_secret_value()) is None:
+            return False, f"No {reason}"
 
     if not 8 <= len(pwd.get_secret_value()) <= 16:
         return False, "Wrong length of password"
