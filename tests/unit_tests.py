@@ -90,8 +90,10 @@ class TestUserAdding(unittest.TestCase):
         self.assertFalse(udb.add_user("good@kek.com", "qwerty", "John", date(2001, 1, 1))[0])
 
     def test_age_correctness(self):
-        for k in range(0, datetime.datetime.now().year):
+        for k in range(1, datetime.datetime.now().year):
             self.assertTrue(udb.add_user(f"best{k}@kek.com", "qwerty", "John", date(k, 1, 1))[0])
+        for k in range(datetime.datetime.now().year, datetime.datetime.now().year + 1000):
+            self.assertFalse(udb.add_user(f"best{k}@kek.com", "qwerty", "John", date(k, 1, 1))[0])
 
 
 if __name__ == '__main__':
