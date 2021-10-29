@@ -18,14 +18,14 @@ def install_dependencies():
 
 def run_tests():
     calls = [
-        "python -m unittest src/test.py"
+        "python -m unittest tests/unit_tests.py"
     ]
     call_all(calls)
 
 
 def check_coverage():
     calls = [
-        "coverage run -m unittest src/test.py",
+        "coverage run -m unittest tests/unit_tests.py",
         "coverage report -m"
     ]
     call_all(calls)
@@ -62,7 +62,7 @@ if __name__ == "__main__":
         install_dependencies()
     elif command == "type-check":
         run_type_checking()
-    elif command == "tests":
+    elif command == "test":
         run_tests()
     elif command == "check-coverage":
         check_coverage()

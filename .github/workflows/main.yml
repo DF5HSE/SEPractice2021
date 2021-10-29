@@ -28,7 +28,7 @@ jobs:
           python build-system-script.py install-depends
       - name: Run tests
         run: |
-          python build-system-script.py tests
+          python build-system-script.py test
       - name: Check coverage
         run: |
           python build-system-script.py check-coverage
