@@ -80,7 +80,13 @@ class TestUserAdding(unittest.TestCase):
         email_id.clear()
 
     def test_mail_correctness(self):
-        self.assertFalse(udb.add_user("bad email", "qwerty", "John", date(2021, 1, 1)))
+        self.assertFalse(udb.add_user("bad email", "qwerty", "John", date(2021, 1, 1))[0])
+
+    def test_original_email(self):
+        self.assertTrue(udb.add_user("good@kek.com", "qwerty", "John", date(2021, 1, 1))[0])
+        self.assertTrue(udb.add_user("good2@kek.com", "qwerty", "John", date(2021, 1, 1))[0])
+        self.assertFalse(udb.add_user("good2@kek.com", "kekw", "NotJohn", date(2020, 1, 1))[0])
+        self.assertFalse(udb.add_user("good@kek.com", "qwerty", "John", date(2021, 1, 1))[0])
 
 
 if __name__ == '__main__':
