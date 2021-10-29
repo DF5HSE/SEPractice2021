@@ -8,11 +8,13 @@ import re
 def validate_new_password(pwd: SecretStr) -> Tuple[bool, str]:
     """
     Requirements to password:
+
     - 1+ char in upper case
     - 1+ char in lower case
     - 1+ digit
     - 1+ special char: '!', '@', '#', '_' or '.'
     - no other chars
+
     - length more 8
     - length less 16
 
@@ -24,5 +26,8 @@ def validate_new_password(pwd: SecretStr) -> Tuple[bool, str]:
 
     if re.search(r'[A-Z]', pwd.get_secret_value()) is None:
         return False, "No capital letters"
+
+    if not 8 <= len(pwd.get_secret_value()) <= 16:
+        return False, "Wrong length of password"
 
     return True, "Ok"
