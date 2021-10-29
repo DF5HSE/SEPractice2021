@@ -1,3 +1,4 @@
+import datetime
 import re
 
 import unittest
@@ -83,10 +84,14 @@ class TestUserAdding(unittest.TestCase):
         self.assertFalse(udb.add_user("bad email", "qwerty", "John", date(2021, 1, 1))[0])
 
     def test_original_email(self):
-        self.assertTrue(udb.add_user("good@kek.com", "qwerty", "John", date(2021, 1, 1))[0])
-        self.assertTrue(udb.add_user("good2@kek.com", "qwerty", "John", date(2021, 1, 1))[0])
-        self.assertFalse(udb.add_user("good2@kek.com", "kekw", "NotJohn", date(2020, 1, 1))[0])
-        self.assertFalse(udb.add_user("good@kek.com", "qwerty", "John", date(2021, 1, 1))[0])
+        self.assertTrue(udb.add_user("good@kek.com", "qwerty", "John", date(2000, 1, 1))[0])
+        self.assertTrue(udb.add_user("good2@kek.com", "qwerty", "John", date(2001, 1, 1))[0])
+        self.assertFalse(udb.add_user("good2@kek.com", "kekw", "NotJohn", date(2000, 1, 1))[0])
+        self.assertFalse(udb.add_user("good@kek.com", "qwerty", "John", date(2001, 1, 1))[0])
+
+    def test_age_correctness(self):
+        for k in range(0, datetime.datetime.now().year):
+            self.assertTrue(udb.add_user(f"best{k}@kek.com", "qwerty", "John", date(k, 1, 1))[0])
 
 
 if __name__ == '__main__':

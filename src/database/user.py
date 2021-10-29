@@ -23,6 +23,8 @@ email_id: Dict[str, int] = {}
 def add_user(email: str, password: str, name: str, birth_date: date) -> Tuple[bool, str]:
     if re.search(r".+@.+\..+", email) is None:
         return False, "Invalid email"
+    if email in email_id:
+        return False, "Email already exists"
 
     new_user_meta = UserMeta(email, name, birth_date)
     email_id[email] = new_user_meta.id
