@@ -95,8 +95,14 @@ class TestUserAdding(unittest.TestCase):
         for k in range(datetime.datetime.now().year, datetime.datetime.now().year + 1000):
             self.assertFalse(udb.add_user(f"best{k}@kek.com", "qwerty", "John", date(k, 1, 1))[0])
 
-    def test_empty_name(self):
+    def test_empty_name_and_password(self):
         self.assertFalse(udb.add_user("best@kek.com", "qwerty", "", date(1, 1, 1))[0])
+        self.assertFalse(udb.add_user("best@kek.com", "", "John", date(1, 1, 1))[0])
+
+    def test_correct(self):
+        for k in range(1, datetime.datetime.now().year):
+            self.assertTrue(udb.add_user(f"best{k}@kek.com", f"qwerty{k}", "John", date(k, 1, 1))[0])
+            self.assertFalse(udb.add_user(f"best1@kek.com", "qwerty", "John", date(k, 1, 1))[0])
 
 
 if __name__ == '__main__':

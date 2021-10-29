@@ -28,6 +28,10 @@ def add_user(email: str, password: str, name: str, birth_date: date) -> Tuple[bo
         return False, "Email already exists"
     if birth_date.year >= datetime.datetime.now().year:
         return False, "Birth year is incorrect"
+    if len(name) == 0:
+        return False, "Empty name"
+    if len(password) == 0:
+        return False, "Empty password"
 
     new_user_meta = UserMeta(email, name, birth_date)
     email_id[email] = new_user_meta.id
