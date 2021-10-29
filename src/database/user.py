@@ -1,3 +1,4 @@
+import datetime
 import re
 
 from datetime import date
@@ -25,6 +26,8 @@ def add_user(email: str, password: str, name: str, birth_date: date) -> Tuple[bo
         return False, "Invalid email"
     if email in email_id:
         return False, "Email already exists"
+    if birth_date.year >= datetime.datetime.now().year:
+        return False, "Birth year is incorrect"
 
     new_user_meta = UserMeta(email, name, birth_date)
     email_id[email] = new_user_meta.id

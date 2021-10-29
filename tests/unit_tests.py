@@ -95,6 +95,9 @@ class TestUserAdding(unittest.TestCase):
         for k in range(datetime.datetime.now().year, datetime.datetime.now().year + 1000):
             self.assertFalse(udb.add_user(f"best{k}@kek.com", "qwerty", "John", date(k, 1, 1))[0])
 
+    def test_empty_name(self):
+        self.assertFalse(udb.add_user("best@kek.com", "qwerty", "", date(1, 1, 1))[0])
+
 
 if __name__ == '__main__':
     unittest.main()
