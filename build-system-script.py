@@ -5,7 +5,8 @@ from typing import List
 
 def call_all(calls: List[str]):
     for call in calls:
-        subprocess.call(call.split())
+        if subprocess.call(call.split()) != 0:
+            raise RuntimeError(f"Call '{call}' failed")
 
 
 def install_dependencies():
