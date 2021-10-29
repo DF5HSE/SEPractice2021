@@ -65,6 +65,13 @@ class TestPasswordValidation(unittest.TestCase):
             pwd = ''.join(random.sample(pwd, len(pwd)))
             self.assertFalse(validate_new_password(SecretStr(pwd))[0])
 
+    def test_correct_password(self):
+        n_pwds = 1000
+        for _ in range(n_pwds):
+            pwd = self.generate_pref()
+            pwd += ''.join(random.choices(letters + digits + specials, k=random.randint(4, 12)))
+            self.assertTrue(validate_new_password(SecretStr(pwd))[0])
+
 
 class TestUserAdding(unittest.TestCase):
     def setUp(self):
