@@ -23,6 +23,16 @@ class TestPasswordValidation(unittest.TestCase):
             pwd += ''.join(random.choices(symbs, k=random.randint(5, 14)))
             self.assertFalse(validate_new_password(SecretStr(pwd))[0])
 
+    def test_len(self):
+        n_pwds = 100
+        symbs = letters + digits + specials
+
+        for _ in range(n_pwds):
+            pwd = random.choice(letters.lower()) + random.choice(digits) + random.choice(specials) + random.choice(letters.upper())
+            pwd += ''.join(random.choices(symbs, k=random.randint(0, 3)))
+            self.assertFalse(validate_new_password(SecretStr(pwd))[0])
+            pwd += ''.join(random.choices(symbs, k=random.randint(12, 100)))
+            self.assertFalse(validate_new_password(SecretStr(pwd))[0])
 
 
 if __name__ == '__main__':

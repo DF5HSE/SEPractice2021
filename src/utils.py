@@ -2,6 +2,7 @@
 from typing import Tuple
 
 from pydantic import SecretStr
+import re
 
 
 def validate_new_password(pwd: SecretStr) -> Tuple[bool, str]:
@@ -20,4 +21,8 @@ def validate_new_password(pwd: SecretStr) -> Tuple[bool, str]:
     """
     if pwd.get_secret_value() == "":
         return False, "Password is empty"
+
+    if re.search(r'[A-Z]', pwd.get_secret_value()) is None:
+        return False, "No capital letters"
+
     return True, "Ok"

@@ -49,7 +49,7 @@ def run_pylint():
 
 def run_type_checking():
     calls = [
-        "mypy src"
+        "python3 -m mypy src"
     ]
     call_all(calls)
 
