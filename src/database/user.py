@@ -54,4 +54,6 @@ def add_user(email: str, password: str,
 def authorization(email: str, password: str) -> Tuple[bool, str]:
     if email not in email_id:
         return False, "Incorrect email or password"
+    if id_pwd[email_id[email]] != password:
+        return False, "Incorrect email or password"
     return True, "Ok"

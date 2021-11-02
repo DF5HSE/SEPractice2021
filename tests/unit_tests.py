@@ -135,6 +135,18 @@ class TestUserAuth(unittest.TestCase):
         udb.add_user("best@kek.com", "qwerty", "gqogdGASsdafhn", date(2001, 1, 1))
         self.assertFalse(udb.authorization("best@kek.com", "pwd")[0])
 
+    def test_correct(self):
+        udb.add_user("best@kek.com", "qwerty", "gqogdGASsdafhn", date(2001, 1, 1))
+        self.assertFalse(udb.authorization("best@kek.com", "pwd")[0])
+        self.assertFalse(udb.authorization("best1337@kek.com", "qwerty")[0])
+        self.assertTrue(udb.authorization("best@kek.com", "qwerty")[0])
+        self.assertFalse(udb.authorization("best2@kek.com", "qwerty")[0])
+        udb.add_user("best2@kek.com", "qwerty2", "gqogdGASsdafhn", date(2001, 1, 1))
+        self.assertFalse(udb.authorization("best@kek.com", "qwerty2")[0])
+        self.assertFalse(udb.authorization("best2@kek.com", "qwerty")[0])
+        self.assertTrue(udb.authorization("best2@kek.com", "qwerty2")[0])
+        udb.add_user("bestkek.com", "qwerty", "gqogdGASsdafhn", date(2001, 1, 1))
+        self.assertFalse(udb.authorization("bestkek.com", "qwerty")[0])
 
 if __name__ == '__main__':
     unittest.main()
