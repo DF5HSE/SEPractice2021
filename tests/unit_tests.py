@@ -148,6 +148,17 @@ class TestUserAuth(unittest.TestCase):
         udb.add_user("bestkek.com", "qwerty", "gqogdGASsdafhn", date(2001, 1, 1))
         self.assertFalse(udb.authorization("bestkek.com", "qwerty")[0])
 
+
+class TestGetUserMeta(unittest.TestCase):
+    def setUp(self):
+        id_user_meta.clear()
+        id_pwd.clear()
+        email_id.clear()
+
+    def test_invalid_mail(self):
+        self.assertIsNone(udb.get_meta_by_mail("best@kek.com"))
+
+
 if __name__ == '__main__':
     unittest.main()
     print('End')

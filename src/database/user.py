@@ -57,3 +57,7 @@ def authorization(email: str, password: str) -> Tuple[bool, str]:
     if id_pwd[email_id[email]] != password:
         return False, "Incorrect email or password"
     return True, "Ok"
+
+
+def get_meta_by_mail(email: str) -> Optional[UserMeta]:
+    return UserMeta("kek@kek.kek", "kek", date(20, 1, 1))
