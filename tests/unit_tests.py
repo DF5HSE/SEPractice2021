@@ -106,14 +106,31 @@ class TestUserAdding(unittest.TestCase):
 
     def test_check_at_in_mail(self):
         self.assertFalse(udb.add_user("very@bad@email.com", "qwerty", "gqogdGASsdafhn", date(2001, 1, 1))[0])
-        self.assertFalse(udb.add_user("ve@@ry@ba@d@em@@@@a@il@eg.co@@m", "qwerasfsatya", "Josadhn", date(2000, 5, 1))[0])
-        self.assertFalse(udb.add_user("ve@@ry@ba@d@em@@@@a@il@aasd.co@@m", "qweafrty", "JoAghETahwehn", date(2001, 1, 12))[0])
+        self.assertFalse(
+            udb.add_user("ve@@ry@ba@d@em@@@@a@il@eg.co@@m", "qwerasfsatya", "Josadhn", date(2000, 5, 1))[0])
+        self.assertFalse(
+            udb.add_user("ve@@ry@ba@d@em@@@@a@il@aasd.co@@m", "qweafrty", "JoAghETahwehn", date(2001, 1, 12))[0])
         self.assertFalse(udb.add_user("ve@@@gs.com", "qweafrty", "JoAghETahwehn", date(2001, 1, 12))[0])
         self.assertFalse(udb.add_user("ve@@@asad@f.com", "qweafrty", "JoAghETahwehn", date(2001, 1, 12))[0])
-        self.assertFalse(udb.add_user("2@@@@@@@@@@@@@@@@@@@@@@@@@@s.co@@m", "qweafrty", "gaswqroqhewqashn", date(2001, 1, 12))[0])
-        self.assertFalse(udb.add_user("2@@@@@kekekgdwqEWFsaf@@@@@@@@@@@@@@@@@@@@@s.com", "qweafrty", "Joasghn", date(2001, 1, 12))[0])
+        self.assertFalse(
+            udb.add_user("2@@@@@@@@@@@@@@@@@@@@@@@@@@s.co@@m", "qweafrty", "gaswqroqhewqashn", date(2001, 1, 12))[0])
+        self.assertFalse(
+            udb.add_user("2@@@@@kekekgdwqEWFsaf@@@@@@@@@@@@@@@@@@@@@s.com", "qweafrty", "Joasghn", date(2001, 1, 12))[
+                0])
         self.assertFalse(udb.add_user("2@@@@@fgasek@@@@@@@@@@@@@@@@@@@s.com", "qweafrty", "", date(2001, 1, 12))[0])
-        self.assertFalse(udb.add_user("2@@@@@kekekekgEGAsaW@@@@@@@@@@@@@@@@@@@@@s.com", "qweafAFFsrty", "", date(2011, 10, 11))[0])
+        self.assertFalse(
+            udb.add_user("2@@@@@kekekekgEGAsaW@@@@@@@@@@@@@@@@@@@@@s.com", "qweafAFFsrty", "", date(2011, 10, 11))[0])
+
+
+class TestUserAuth(unittest.TestCase):
+    def setUp(self):
+        id_user_meta.clear()
+        id_pwd.clear()
+        email_id.clear()
+
+    def test_invalid_mail(self):
+        self.assertFalse(udb.authorization("best@kek.com", "pwd")[0])
+
 
 if __name__ == '__main__':
     unittest.main()

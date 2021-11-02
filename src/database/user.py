@@ -3,7 +3,7 @@ import datetime
 import re
 
 from datetime import date
-from typing import Dict, Tuple
+from typing import Dict, Tuple, Optional
 
 
 class UserMeta:  # pylint: disable=too-few-public-methods
@@ -21,6 +21,7 @@ class UserMeta:  # pylint: disable=too-few-public-methods
 id_pwd: Dict[int, str] = {}
 id_user_meta: Dict[int, UserMeta] = {}
 email_id: Dict[str, int] = {}
+currentUserId: Optional[int] = None
 
 
 def add_user(email: str, password: str,
@@ -32,7 +33,7 @@ def add_user(email: str, password: str,
     :param birth_date:
     :return:
     """
-    if re.search(r".+@.+\..+", email) is None:
+    if re.fullmatch(r".+@.+\..+", email) is None or email.count("@") != 1:
         return False, "Invalid email"
     if email in email_id:
         return False, "Email already exists"
@@ -48,3 +49,7 @@ def add_user(email: str, password: str,
     id_pwd[new_user_meta.identifier] = password
     id_user_meta[new_user_meta.identifier] = new_user_meta
     return True, "User added"
+
+
+def authorization(email: str, password: str) -> Tuple[bool, str]:
+    return True, "Ok"
