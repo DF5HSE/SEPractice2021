@@ -158,6 +158,18 @@ class TestGetUserMeta(unittest.TestCase):
     def test_invalid_mail(self):
         self.assertIsNone(udb.get_meta_by_mail("best@kek.com"))
 
+    def test_correct_user_data(self):
+        email = "best@kek.com"
+        password = "qwerty"
+        name = "gqogdGASsdafhn"
+        birth_date = date(2001, 1, 1)
+        udb.add_user(email, password, name, birth_date)
+        self.assertIsNotNone(udb.get_meta_by_mail(email))
+        meta = udb.get_meta_by_mail(email)
+        self.assertEquals(email, meta.email)
+        self.assertEquals(name, meta.name)
+        self.assertEquals(birth_date, meta.birth_date)
+
 
 if __name__ == '__main__':
     unittest.main()

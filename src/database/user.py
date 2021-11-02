@@ -52,6 +52,11 @@ def add_user(email: str, password: str,
 
 
 def authorization(email: str, password: str) -> Tuple[bool, str]:
+    """
+    :param email:
+    :param password:
+    :return:
+    """
     if email not in email_id:
         return False, "Incorrect email or password"
     if id_pwd[email_id[email]] != password:
@@ -60,4 +65,11 @@ def authorization(email: str, password: str) -> Tuple[bool, str]:
 
 
 def get_meta_by_mail(email: str) -> Optional[UserMeta]:
-    return UserMeta("kek@kek.kek", "kek", date(20, 1, 1))
+    """
+    :param email:
+    :return:
+    """
+    if email not in email_id:
+        return None
+    identifier = email_id[email]
+    return id_user_meta[identifier]
