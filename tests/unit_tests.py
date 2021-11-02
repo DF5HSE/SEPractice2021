@@ -131,6 +131,10 @@ class TestUserAuth(unittest.TestCase):
     def test_invalid_mail(self):
         self.assertFalse(udb.authorization("best@kek.com", "pwd")[0])
 
+    def test_invalid_password(self):
+        udb.add_user("best@kek.com", "qwerty", "gqogdGASsdafhn", date(2001, 1, 1))
+        self.assertFalse(udb.authorization("best@kek.com", "pwd")[0])
+
 
 if __name__ == '__main__':
     unittest.main()
