@@ -4,3 +4,4 @@
 /.pytest_cash
 .coverage
 /.mypy_cache
+__pycache__

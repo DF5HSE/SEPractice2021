@@ -5,50 +5,51 @@ from typing import List
 
 def call_all(calls: List[str]):
     for call in calls:
-        subprocess.call(call.split())
+        if subprocess.call(call.split()) != 0:
+            raise RuntimeError(f"Call '{call}' failed")
 
 
 def install_dependencies():
     calls = [
-        "python -m pip install --upgrade pip",
-        "pip install -r requirements.txt"
+        "python3 -m pip install --upgrade pip",
+        "python3 -m pip install -r requirements.txt"
     ]
     call_all(calls)
 
 
 def run_tests():
     calls = [
-        "python -m unittest src/test.py"
+        "python3 -m unittest tests/unit_tests.py"
     ]
     call_all(calls)
 
 
 def check_coverage():
     calls = [
-        "coverage run -m unittest src/test.py",
-        "coverage report -m"
+        "python3 -m coverage run -m unittest tests/unit_tests.py",
+        "python3 -m coverage report -m"
     ]
     call_all(calls)
 
 
 def run_flake8():
     calls = [
-        "flake8 src --count --select=E9,F63,F7,F82 --show-source --statistics",
-        "flake8 src --count --max-complexity=10 --max-line-length=79 --statistics",
+        "python3 -m flake8 src --count --select=E9,F63,F7,F82 --show-source --statistics",
+        "python3 -m flake8 src --count --max-complexity=10 --max-line-length=79 --statistics",
     ]
     call_all(calls)
 
 
 def run_pylint():
     calls = [
-        "pylint src"
+        "python3 -m pylint src --extension-pkg-whitelist=pydantic"
     ]
     call_all(calls)
 
 
 def run_type_checking():
     calls = [
-        "mypy src"
+        "python3 -m mypy src"
     ]
     call_all(calls)
 
@@ -62,13 +63,19 @@ if __name__ == "__main__":
         install_dependencies()
     elif command == "type-check":
         run_type_checking()
-    elif command == "tests":
+    elif command == "test":
         run_tests()
     elif command == "check-coverage":
         check_coverage()
     elif command == "flake8":
         run_flake8()
     elif command == "pylint":
+        run_pylint()
+    elif command == "all-checks":
+        run_type_checking()
+        run_tests()
+        check_coverage()
+        run_flake8()
         run_pylint()
     else:
         raise RuntimeError(f"Wrong command '{command}'")
