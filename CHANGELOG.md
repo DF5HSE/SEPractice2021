@@ -15,7 +15,7 @@ Kekos project CHANGELOG
 - README.md to a better one
 
 
-## [0.2.1] - 2021-11-02
+## [0.2.1] - 2021-11-04
 
 ### Added
 
