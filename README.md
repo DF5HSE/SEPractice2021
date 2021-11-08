@@ -28,7 +28,9 @@ You are at the repository of the revolutionary project called "Kekos+". Our goal
 - [Footer](#footer)
 
 # Roadmap
-Our roadmap for this project can be found [here](https://github.com/DF5HSE/SE2021Practice/projects/1). Fill free to share your ideas!
+Our roadmap for this project can be found [here](https://github.com/DF5HSE/SE2021Practice/projects/1). Fill free to share your ideas! 
+
+Project changelog is available [here](https://github.com/DF5HSE/SE2021Practice/blob/readme/CHANGELOG.md).
 
 # Installation
 [(Back to top)](#table-of-contents)
@@ -50,6 +52,7 @@ You may run tests to check whether everyting is OK by running
 # Usage
 [(Back to top)](#table-of-contents)
 
+TODO
 
 # Contribute
 [(Back to top)](#table-of-contents)
