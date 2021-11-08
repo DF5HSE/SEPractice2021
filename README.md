@@ -28,7 +28,7 @@ You are at the repository of the revolutionary project called "Kekos+". Our goal
 - [Footer](#footer)
 
 # Roadmap
-Our roadmap for this project can be found [here](#). Fill free to share your ideas!
+Our roadmap for this project can be found [here](https://github.com/DF5HSE/SE2021Practice/projects/1). Fill free to share your ideas!
 
 # Installation
 [(Back to top)](#table-of-contents)
