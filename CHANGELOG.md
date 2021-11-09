@@ -4,6 +4,11 @@ Kekos project CHANGELOG
 
 ## [Unreleased]
 
+### Added
+- REST API by fastapi, allowing registrate new users and authorize
+
+## [0.1.0] 2021-11-04
+
 ### Added 
 
 - Project roadmap
