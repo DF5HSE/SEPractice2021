@@ -1,7 +1,7 @@
 from unittest import TestCase
 from fastapi.testclient import TestClient
-from src.database.user import id_user_meta, email_id, id_pwd
-from src.main import app
+from src.database.users import id_user_meta, email_id, id_pwd
+from main import app
 
 client = TestClient(app)
 
