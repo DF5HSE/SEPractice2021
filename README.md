@@ -58,6 +58,9 @@ importing `src.databse.user` module.
 - the utilities' module. By now it contains function for password validation,
 which will be used in new user registration process. You can try it by
 importing `src.utils` module.
+- the REST API with endpoints for registration new users and authorization
+of existing ones. You can launch local server by `uvicorn main:app --reload`
+command and try out endpoins in your browser on http://127.0.0.1:8000/docs
 
 Also, we write `build-system-script.py`. You can launch it by:
 `python3 build-system-script.py <command>`. Available commands are:
