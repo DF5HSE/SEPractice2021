@@ -1,0 +1,28 @@
+"""main file"""
+from fastapi import FastAPI, HTTPException
+import src.database.users as udb
+from src.pydantic_models.user import UserCreateModel
+from src.pydantic_models.user import UserAuthModel
+
+app = FastAPI()
+
+
+@app.post("/users/registration", status_code=201)
+async def register_user(user: UserCreateModel):
+    if udb.get_meta_by_mail(user.email) is not None:
+        raise HTTPException(status_code=403,
+                            detail="This mail has been already registered")
+    success, msg = udb.add_user(user.email, user.password.get_secret_value(),
+                                user.name, user.birth_date)
+    if not success:
+        raise HTTPException(status_code=403, detail=msg)
+    return msg
+
+
+@app.post("/users/auth")
+async def authorize(user_auth: UserAuthModel):
+    success, msg = udb.authorization(user_auth.email,
+                                     user_auth.password.get_secret_value())
+    if not success:
+        raise HTTPException(status_code=403, detail=msg)
+    return success

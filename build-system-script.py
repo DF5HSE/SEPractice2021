@@ -19,7 +19,8 @@ def install_dependencies():
 
 def run_tests():
     calls = [
-        "python3 -m unittest tests/unit_tests.py"
+        "python3 -m unittest tests/unit_tests.py",
+        "python3 -m unittest tests/integration_tests.py"
     ]
     call_all(calls)
 
