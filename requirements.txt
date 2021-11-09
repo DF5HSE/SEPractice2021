@@ -3,3 +3,6 @@ pylint
 coverage
 mypy
 pydantic
+fastapi
+email-validator
+requests
