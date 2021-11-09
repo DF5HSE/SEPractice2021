@@ -47,17 +47,24 @@ Make sure you have Python3 and pip installed on your device. Perform installatio
 
 You may run tests to check whether everyting is OK by running
 
-```python build-system-script.py test```
+```python3 build-system-script.py test```
 
 # Usage
 [(Back to top)](#table-of-contents)
 
-TODO
+Now our team is developing user administration system.
+
+By now we have implemented:
+- the database prototype and functions for using it. You can try it by
+importing `src.databse.user` module.
+- the utilities' module. By now it contains function for password validation,
+which will be used in new user registration process. You can try it by
+importing `src.utils` module.
 
 # Contribute
 [(Back to top)](#table-of-contents)
 
-We wellcome anyone to contribute into our project.
+We welcome anyone to contribute into our project.
 
 ### Sponsor
 [(Back to top)](#table-of-contents)
