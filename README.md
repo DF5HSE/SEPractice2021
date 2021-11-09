@@ -61,10 +61,10 @@ importing `src.utils` module.
 
 Also, we write `build-system-script.py`. You can launch it by:
 `python3 build-system-script.py <command>`. Available commands are:
-- `install-depends` -- install dependencies, listed in `requirements.txt`
-- `type-check` -- run mypy, which check matching of types in source
-python files
-- `flake8` -- run [flake8](https://mypy.readthedocs.io/en/stable/) linter above source files
+- `install-depends` -- install dependencies, listed in `requirements.txt`.
+- `type-check` -- run [mypy](https://mypy.readthedocs.io/en/stable/), which check matching
+of types in source python files.
+- `flake8` -- run [flake8](https://flake8.pycqa.org/en/latest/index.html) linter above source files
 - `pylint` -- run [pylint](https://www.pylint.org/) linter above source files
 - `test` -- run tests.
 - `check-coverage` -- check coverage of source files by tests.
