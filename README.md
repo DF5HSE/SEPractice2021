@@ -52,14 +52,23 @@ You may run tests to check whether everyting is OK by running
 # Usage
 [(Back to top)](#table-of-contents)
 
-Now our team is developing user administration system.
-
-By now we have implemented:
+Now our team is developing user administration system. By now we have implemented:
 - the database prototype and functions for using it. You can try it by
 importing `src.databse.user` module.
 - the utilities' module. By now it contains function for password validation,
 which will be used in new user registration process. You can try it by
 importing `src.utils` module.
+
+Also, we write `build-system-script.py`. You can launch it by:
+`python3 build-system-script.py <command>`. Available commands are:
+- `install-depends` -- install dependencies, listed in `requirements.txt`
+- `type-check` -- run mypy, which check matching of types in source
+python files
+- `flake8` -- run [flake8](https://mypy.readthedocs.io/en/stable/) linter above source files
+- `pylint` -- run [pylint](https://www.pylint.org/) linter above source files
+- `test` -- run tests.
+- `check-coverage` -- check coverage of source files by tests.
+- `all-checks` -- run all checks commands.
 
 # Contribute
 [(Back to top)](#table-of-contents)
