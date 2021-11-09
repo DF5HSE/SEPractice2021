@@ -8,6 +8,7 @@ Kekos project CHANGELOG
 
 - Project roadmap
 - CHANGELOG.md
+- GitHub Wiki
 
 
 ### Changed
