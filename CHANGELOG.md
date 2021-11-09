@@ -15,17 +15,17 @@ Kekos project CHANGELOG
 - README.md to a better one
 
 
-## [0.2.1] - 2021-11-04
+## [0.1.3] - 2021-11-04
 
 ### Added
 
 - .editorconfig
 
-## [0.2.0] - 2021-11-02
+## [0.1.2] - 2021-11-02
 
 ### Added
 
-- Authorization system
+- Users administration system
 - LICENSE.md
 
 
