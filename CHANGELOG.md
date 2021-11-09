@@ -16,13 +16,13 @@ Kekos project CHANGELOG
 - README.md to a better one
 
 
-## [0.2.1] - 2021-11-04
+## [0.0.6] - 2021-11-04
 
 ### Added
 
 - .editorconfig
 
-## [0.2.0] - 2021-11-02
+## [0.0.5] - 2021-11-02
 
 ### Added
 
@@ -30,7 +30,7 @@ Kekos project CHANGELOG
 - LICENSE.md
 
 
-## [0.1.1] - 2021-10-29
+## [0.0.4] - 2021-10-29
 
 ### Added
 
@@ -41,7 +41,7 @@ Kekos project CHANGELOG
 
 - GitHub Acctions with build system
 
-## [0.1.0] - 2021-10-26
+## [0.0.3] - 2021-10-26
 
 ### Added
 
