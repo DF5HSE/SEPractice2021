@@ -2,7 +2,7 @@
 
 Kekos project CHANGELOG
 
-## [Unreleased]
+## [0.2.0]
 
 ### Added
 - REST API by fastapi, allowing registrate new users and authorize
