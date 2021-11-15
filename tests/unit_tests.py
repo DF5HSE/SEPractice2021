@@ -4,8 +4,8 @@ import re
 import unittest
 import string
 import random
-import src.database.user as udb
-from src.database.user import id_user_meta, email_id, id_pwd
+import src.database.users as udb
+from src.database.users import id_user_meta, email_id, id_pwd
 from src.utils import validate_new_password
 from pydantic import SecretStr
 from datetime import date
