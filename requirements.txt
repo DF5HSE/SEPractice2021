@@ -4,3 +4,6 @@ coverage
 mypy
 pydantic
 uvicorn
+fastapi
+email-validator
+requests
