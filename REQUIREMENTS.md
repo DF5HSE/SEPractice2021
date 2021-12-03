@@ -1,0 +1,1 @@
+![Practising game](www.plantuml.com/plantuml/png/TP312i8m44Jl-OhnfeV-G16fHy53m2zOuXe3QLAosuD_Rr9QF4XFWTctEpCPHAdeF4Ppq3UF3CTbZap9QD38i8MS1Wd9mrCTKyo9ZQbYBkXjf0-N7YImnbXq5nplsOTqCkkBhcaFZkoq7PcMUuwH9msvSlkplzqMuBUm2JWlM8i2yXIIAAwtVMupaTpgo5GPGNwXrbyT1axF-YDV)
