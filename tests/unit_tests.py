@@ -93,8 +93,10 @@ class TestUserAdding(unittest.TestCase):
         cur_year = datetime.datetime.now().year
         self.assertFalse(self.udb.add_user(f"best{cur_year}@kek.com", "qwerty", "John", date(cur_year, 1, 1))[0])
 
-    def test_empty_name_and_password(self):
+    def test_empty_name(self):
         self.assertFalse(self.udb.add_user("best@kek.com", "qwerty", "", date(1, 1, 1))[0])
+
+    def test_empty_password(self):
         self.assertFalse(self.udb.add_user("best@kek.com", "", "John", date(1, 1, 1))[0])
 
     def test_correct(self):
