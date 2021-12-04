@@ -18,12 +18,6 @@ class UserMeta:  # pylint: disable=too-few-public-methods
         self.birth_date: date = birth_date
 
 
-# id_pwd: Dict[int, str] = {}
-# id_user_meta: Dict[int, UserMeta] = {}
-# email_id: Dict[str, int] = {}
-# currentUserId: Optional[int] = None
-
-
 class UsersDataBase:
     """User database class"""
 
@@ -31,7 +25,6 @@ class UsersDataBase:
         self.id_pwd: Dict[int, str] = {}
         self.id_user_meta: Dict[int, UserMeta] = {}
         self.email_id: Dict[str, int] = {}
-        self.currentUserId: Optional[int] = None
 
     def add_user(self, email: str, password: str,
                  name: str, birth_date: date) -> Tuple[bool, str]:
@@ -80,4 +73,3 @@ class UsersDataBase:
             return None
         identifier = self.email_id[email]
         return self.id_user_meta[identifier]
-
