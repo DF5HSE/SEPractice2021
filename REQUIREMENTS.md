@@ -1,3 +1,7 @@
+# User Roles
+1. **Professional player**: A professional player trains to achieve some result: hone his technique, get a title, etc.
+2. **Casual player**: A casual player plays to have a good time, does not set a goal to achieve sporting achievements.
+3. **Coach**: A coach conducts classes for other users.
 # User story
 * **as**: professional player, 
 **I want to**: train anywhere and anytime, 
