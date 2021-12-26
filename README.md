@@ -8,8 +8,6 @@
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/DF5HSE/SE2021Practice)
 ![GitHub](https://img.shields.io/github/license/DF5HSE/SE2021Practice)
 
-<!-- Describe your project in brief -->
-
 You are at the repository of the revolutionary project called "Kekos+". Our goal is to create super cool AR technology which allows people to play different sport games (e.g. tennis, ping-pong) anywhere while only needing a mobile phone and our devices with no additional inventory required. Once this project is finished everyone will say **"It's a revolution, Jhony"**. The name is inspired by a variable from some production code. More about the project in [this presentation](https://docs.google.com/presentation/d/1MCz6UrpTSqI-dBRKP3hgpjwFdbOWcO_p6LlD_ICNgVc/edit?usp=sharing).
 
 
@@ -37,17 +35,17 @@ Project changelog is available [here](https://github.com/DF5HSE/SE2021Practice/b
 
 To run our project, first clone the repo on your device using the command below:
 
-```git init```
+`git init`
 
-```git clone https://github.com/DF5HSE/SE2021Practice.git```
+`git clone https://github.com/DF5HSE/SE2021Practice.git`
 
 Make sure you have Python3 and pip installed on your device. Perform installation by running 
 
-```python3 build-system-script.py install-depends```
+`python3 build-system-script.py install-depends`
 
 You may run tests to check whether everyting is OK by running
 
-```python3 build-system-script.py test```
+`python3 build-system-script.py test`
 
 # Usage
 [(Back to top)](#table-of-contents)
@@ -81,7 +79,7 @@ We welcome anyone to contribute into our project.
 ### Sponsor
 [(Back to top)](#table-of-contents)
 
-Just send money to our credit card with the following number xxxx-xxxx-xxxx-xxxx. Thanks a lot. Names of top donatros won't be forgiven.
+Just send money to our credit card with the following number xxxx-xxxx-xxxx-xxxx. Thanks a lot. Names of top donatros won't be forgotten.
 
 ### Adding new features or fixing bugs
 [(Back to top)](#table-of-contents)
@@ -98,15 +96,12 @@ Project is in development but already is ready for a revolution.
 # Authors and contacts
 [(Back to top)](#table-of-contents)
 
-Denis Tarasov (GitHub: DT6A), Alina Ushakova (GitHub: AlinaUsh), Denis Filippov (GitHub: DF5HSE).
+* [Denis Tarasov](https://github.com/DT6A)
+* [Alina Ushakova](https://github.com/AlinaUsh)
+* [Denis Filippov](https://github.com/DF5HSE).
 
 # License
 [(Back to top)](#table-of-contents)
 
 [MIT licenses](https://opensource.org/licenses/MIT)
-
-# Footer
-[(Back to top)](#table-of-contents)
-
-Leave a star in GitHub and wait for upcomming updates and news!
 
