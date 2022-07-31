@@ -1,7 +1,5 @@
 # Kekos+
 
-<!-- Add buttons here -->
-
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/DF5HSE/SE2021Practice?include_prereleases)
 ![GitHub last commit](https://img.shields.io/github/last-commit/DF5HSE/SE2021Practice)
 ![GitHub issues](https://img.shields.io/github/issues-raw/DF5HSE/SE2021Practice)
@@ -57,7 +55,7 @@ importing `src.databse.user` module.
 which will be used in new user registration process. You can try it by
 importing `src.utils` module.
 - the REST API with endpoints for registration new users and authorization
-of existing ones. You can launch local server by `uvicorn main:app --reload`
+of existing ones. You can launch local server by `python3 -m uvicorn main:app --reload`
 command and try out endpoins in your browser on http://127.0.0.1:8000/docs
 
 Also, we write `build-system-script.py`. You can launch it by:
@@ -96,12 +94,10 @@ Project is in development but already is ready for a revolution.
 # Authors and contacts
 [(Back to top)](#table-of-contents)
 
+
 * [Denis Tarasov](https://github.com/DT6A)
 * [Alina Ushakova](https://github.com/AlinaUsh)
 * [Denis Filippov](https://github.com/DF5HSE).
 
 # License
-[(Back to top)](#table-of-contents)
-
 [MIT licenses](https://opensource.org/licenses/MIT)
-
