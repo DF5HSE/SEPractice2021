@@ -94,13 +94,10 @@ Project is in development but already is ready for a revolution.
 # Authors and contacts
 [(Back to top)](#table-of-contents)
 
-Denis Tarasov (GitHub: [DT6A](https://github.com/DT6A))
 
-Alina Ushakova (GitHub: [AlinaUsh](https://github.com/AlinaUsh))
-
-Denis Filippov (GitHub: [DF5HSE](https://github.com/DF5HSE))
+* [Denis Tarasov](https://github.com/DT6A)
+* [Alina Ushakova](https://github.com/AlinaUsh)
+* [Denis Filippov](https://github.com/DF5HSE).
 
 # License
-[(Back to top)](#table-of-contents)
-
 [MIT licenses](https://opensource.org/licenses/MIT)
