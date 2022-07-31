@@ -1,16 +1,25 @@
 from unittest import TestCase
 from fastapi.testclient import TestClient
-from src.database.users import id_user_meta, email_id, id_pwd
-from main import app
+from src.database.users import UsersDataBase
+from main import app, get_db
 
 client = TestClient(app)
 
 
+test_udb = UsersDataBase()
+
+
+def override_get_db():
+    yield test_udb
+
+
+app.dependency_overrides[get_db] = override_get_db
+
+
 class TestRegistration(TestCase):
     def setUp(self):
-        id_user_meta.clear()
-        id_pwd.clear()
-        email_id.clear()
+        global test_udb
+        test_udb = UsersDataBase()
 
     def test_registration_success(self):
         rs = client.post("/users/registration",
@@ -53,9 +62,8 @@ class TestRegistration(TestCase):
 
 class TestAuth(TestCase):
     def setUp(self):
-        id_user_meta.clear()
-        id_pwd.clear()
-        email_id.clear()
+        global test_udb
+        test_udb = UsersDataBase()
         rs = client.post("/users/registration",
                          json={
                              "email": "a@yandex.ru",
