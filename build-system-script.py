@@ -1,5 +1,6 @@
 import sys
 import subprocess
+import platform
 from typing import List
 
 
@@ -11,46 +12,46 @@ def call_all(calls: List[str]):
 
 def install_dependencies():
     calls = [
-        "python3 -m pip install --upgrade pip",
-        "python3 -m pip install -r requirements.txt"
+        f"{sys.executable} -m pip install --upgrade pip",
+        f"{sys.executable} -m pip install -r requirements.txt"
     ]
     call_all(calls)
 
 
 def run_tests():
     calls = [
-        "python3 -m unittest tests/unit_tests.py",
-        "python3 -m unittest tests/integration_tests.py"
+        f"{sys.executable} -m unittest tests/unit_tests.py",
+        f"{sys.executable} -m unittest tests/integration_tests.py"
     ]
     call_all(calls)
 
 
 def check_coverage():
     calls = [
-        "python3 -m coverage run -m unittest tests/unit_tests.py",
-        "python3 -m coverage report -m"
+        f"{sys.executable} -m coverage run -m unittest tests/unit_tests.py",
+        f"{sys.executable} -m coverage report -m"
     ]
     call_all(calls)
 
 
 def run_flake8():
     calls = [
-        "python3 -m flake8 src --count --select=E9,F63,F7,F82 --show-source --statistics",
-        "python3 -m flake8 src --count --max-complexity=10 --max-line-length=79 --statistics",
+        f"{sys.executable} -m flake8 src --count --select=E9,F63,F7,F82 --show-source --statistics",
+        f"{sys.executable} -m flake8 src --count --max-complexity=10 --max-line-length=79 --statistics",
     ]
     call_all(calls)
 
 
 def run_pylint():
     calls = [
-        "python3 -m pylint src --extension-pkg-whitelist=pydantic"
+        f"{sys.executable} -m pylint src --extension-pkg-whitelist=pydantic"
     ]
     call_all(calls)
 
 
 def run_type_checking():
     calls = [
-        "python3 -m mypy src"
+        f"{sys.executable} -m mypy src"
     ]
     call_all(calls)
 
