@@ -18,58 +18,58 @@ class UserMeta:  # pylint: disable=too-few-public-methods
         self.birth_date: date = birth_date
 
 
-id_pwd: Dict[int, str] = {}
-id_user_meta: Dict[int, UserMeta] = {}
-email_id: Dict[str, int] = {}
-currentUserId: Optional[int] = None
+class UsersDataBase:
+    """User database class"""
 
+    def __init__(self):
+        self.id_pwd: Dict[int, str] = {}
+        self.id_user_meta: Dict[int, UserMeta] = {}
+        self.email_id: Dict[str, int] = {}
 
-def add_user(email: str, password: str,
-             name: str, birth_date: date) -> Tuple[bool, str]:
-    """
-    :param email:
-    :param password:
-    :param name:
-    :param birth_date:
-    :return:
-    """
-    if re.fullmatch(r".+@.+\..+", email) is None or email.count("@") != 1:
-        return False, "Invalid email"
-    if email in email_id:
-        return False, "Email already exists"
-    if birth_date.year >= datetime.datetime.now().year:
-        return False, "Birth year is incorrect"
-    if len(name) == 0:
-        return False, "Empty name"
-    if len(password) == 0:
-        return False, "Empty password"
+    def add_user(self, email: str, password: str,
+                 name: str, birth_date: date) -> Tuple[bool, str]:
+        """
+        :param email:
+        :param password:
+        :param name:
+        :param birth_date:
+        :return:
+        """
+        if re.fullmatch(r".+@.+\..+", email) is None or email.count("@") != 1:
+            return False, "Invalid email"
+        if email in self.email_id:
+            return False, "Email already exists"
+        if birth_date.year >= datetime.datetime.now().year:
+            return False, "Birth year is incorrect"
+        if len(name) == 0:
+            return False, "Empty name"
+        if len(password) == 0:
+            return False, "Empty password"
 
-    new_user_meta = UserMeta(email, name, birth_date)
-    email_id[email] = new_user_meta.identifier
-    id_pwd[new_user_meta.identifier] = password
-    id_user_meta[new_user_meta.identifier] = new_user_meta
-    return True, "User added"
+        new_user_meta = UserMeta(email, name, birth_date)
+        self.email_id[email] = new_user_meta.identifier
+        self.id_pwd[new_user_meta.identifier] = password
+        self.id_user_meta[new_user_meta.identifier] = new_user_meta
+        return True, "User added"
 
+    def authorization(self, email: str, password: str) -> Tuple[bool, str]:
+        """
+        :param email:
+        :param password:
+        :return:
+        """
+        if email not in self.email_id:
+            return False, "Incorrect email or password"
+        if self.id_pwd[self.email_id[email]] != password:
+            return False, "Incorrect email or password"
+        return True, "Ok"
 
-def authorization(email: str, password: str) -> Tuple[bool, str]:
-    """
-    :param email:
-    :param password:
-    :return:
-    """
-    if email not in email_id:
-        return False, "Incorrect email or password"
-    if id_pwd[email_id[email]] != password:
-        return False, "Incorrect email or password"
-    return True, "Ok"
-
-
-def get_meta_by_mail(email: str) -> Optional[UserMeta]:
-    """
-    :param email:
-    :return:
-    """
-    if email not in email_id:
-        return None
-    identifier = email_id[email]
-    return id_user_meta[identifier]
+    def get_meta_by_mail(self, email: str) -> Optional[UserMeta]:
+        """
+        :param email:
+        :return:
+        """
+        if email not in self.email_id:
+            return None
+        identifier = self.email_id[email]
+        return self.id_user_meta[identifier]
